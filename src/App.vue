@@ -1,28 +1,30 @@
 <template>
   <v-app>
-    <v-toolbar app>
+    <v-toolbar color="brown darken-4" dark app>
       <v-toolbar-title class="headline text-uppercase">
         <router-link
         to='/'
         tag='span'
         style='cursor: pointer'>
-        Movie Man
+        <strong style="font-family:">Nurlatex Movie</strong>
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-flex xs12 sm6 md3>
         <v-text-field
-          label='Movie Name'
+          flat
+          placeholder="Search for your Movie ..."
+          @keyup.enter="searchMovie"
           v-model='searchString'
           >
         </v-text-field>
         </v-flex>
-      <v-btn
+      <v-btn  
         flat
         :disabled="!dataAvailable"
         @click="searchMovie"
       >
-       <span class="mr-2">Search</span>
+       <span  class="mr-2">Search</span>
       </v-btn>
     </v-toolbar>
 

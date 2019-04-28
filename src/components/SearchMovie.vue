@@ -13,11 +13,11 @@
 
   <v-container v-else-if="noData">
     <div class="text-xs-center">
-    <h2>No Movie in API with {{this.name}}</h2>
+    <h2> ooops maybe this api don't contain  {{this.name}}</h2>
     </div>
   </v-container>
 
-  <v-container v-else grid-list-xl>
+  <v-container v-else grid-list-sm>
     <v-layout wrap>
       <v-flex xs4
         v-for="(item, index) in movieResponse"
