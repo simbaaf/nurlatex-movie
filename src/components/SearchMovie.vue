@@ -6,7 +6,7 @@
         indeterminate
         :size="150"
         :width="8"
-        color="green">
+        color="black">
       </v-progress-circular>
     </div>
   </v-container>
@@ -32,19 +32,20 @@
           <v-card-title primary-title>
             <div>
               <h2>{{item.Title}}</h2>
-              <div>Year: {{item.Year}}</div>
-              <div>Type: {{item.Type}}</div>
-              <div>IMDB-id: {{item.imdbID}}</div>
+              <br>
+              <div><strong>Year:</strong>{{item.Year}}</div>
+              <div><strong>Type:</strong>{{item.Type}}</div>
             </div>
           </v-card-title>
 
           <v-card-actions class="justify-center">
-            <v-btn flat
-              color="green"
+            <v-btn
+              color="primary"
+              depressed
+              round
               @click="singleMovie(item.imdbID)"
               >View</v-btn>
           </v-card-actions>
-
         </v-card>
       </v-flex>
   </v-layout>

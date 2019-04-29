@@ -26,15 +26,15 @@
           <v-card-title primary-title>
             <div>
               <h2>{{item.Title}}</h2>
+              <div>{{item.Plot}}</div>
               <div>Year: {{item.Year}}</div>
               <div>Type: {{item.Type}}</div>
-              <div>IMDB-id: {{item.imdbID}}</div>
             </div>
           </v-card-title>
 
           <v-card-actions class="justify-center">
-            <v-btn flat
-              color="green"
+            <v-btn
+              color="black"
               @click="singleMovie(item.imdbID)"
               >View</v-btn>
           </v-card-actions>

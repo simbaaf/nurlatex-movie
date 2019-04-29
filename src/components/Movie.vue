@@ -6,7 +6,7 @@
           indeterminate
           :size="150"
           :width="8"
-          color="green">
+      >
         </v-progress-circular>
       </div>
   </v-container>
@@ -29,7 +29,8 @@
             </div>
           </v-card-title>
           <v-card-actions>
-            <v-btn flat color="green" @click="back">back</v-btn>
+            <v-btn flat color="green" @click="back">
+              back</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -66,7 +67,6 @@
                 </tr>
               </table>
             </v-card-text>
-            <v-divider></v-divider>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
