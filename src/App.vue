@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar color="grey darken-4" dark app>
+    <v-toolbar color="grey darken-4" dark >
       <v-toolbar-title class="headline text-uppercase">
         <router-link
         to='/'
@@ -10,7 +10,7 @@
        round
        depressed
        flat
-       > <v-icon left>home</v-icon> Nurlatex Movie</v-btn> 
+       > <v-icon left>home</v-icon> Nurlatex Movie</v-btn>
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>

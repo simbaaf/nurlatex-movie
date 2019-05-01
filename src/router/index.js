@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LatestMovie from '@/components/LatestMovie'
+import home from '@/components/home'
 import Movie from '@/components/Movie'
 import SearchMovie from '@/components/SearchMovie'
-
+import 'bulma/css/bulma.css'
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'LatestMovie',
-      component: LatestMovie
+      name: 'home',
+      component: home
     },
     {
       path: '/movie/:id',

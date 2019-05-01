@@ -1,5 +1,5 @@
 <template>
-
+<body class="has-background-grey-lighter">
   <v-container v-if="loading">
     <div class="text-xs-center">
         <v-progress-circular
@@ -14,25 +14,33 @@
   <v-container v-else>
     <v-layout wrap>
       <v-flex xs12 mr-1 ml-1>
-        <v-card>
-          <v-img
-            :src="singleMovie.Poster"
-            aspect-ratio="2"
-          ></v-img>
+        <div class="box has-shadow" >
+           <figure class="image">
+          <v-img 
+            :src="singleMovie.Poster" 
+            max-width="350"
+            max
+            
+            >
+          </v-img>
+          </figure>
           <v-card-title primary-title>
             <div>
               <h2 class="headline mb-0">{{singleMovie.Title}}-{{singleMovie.Year}}</h2>
-              <p>{{ singleMovie.Plot}} </p>
-              <h3>Actors:</h3>{{singleMovie.Actors}}
-               <h4>Awards:</h4> {{singleMovie.Awards}}
-               <p>Genre: {{singleMovie.Genre}}</p>
+              <br>
+              <p> <strong>Description: </strong> {{singleMovie.Plot}}</p>
+              <div><strong>Genre: </strong> {{singleMovie.Genre}}.</div>
+              <div> <strong>Actors: </strong>{{singleMovie.Actors}}.</div>
+               <div><strong>Rating : </strong>{{singleMovie.imdbRating}}.</div>
+               <div><strong>Runtime : </strong> {{singleMovie.Runtime}}.</div>
+               <div><strong>Genre: </strong> {{singleMovie.Country}}.</div>
             </div>
           </v-card-title>
           <v-card-actions>
-            <v-btn flat color="green" @click="back">
+            <v-btn round color="black" dark @click ="back">
               back</v-btn>
           </v-card-actions>
-        </v-card>
+        </div>
       </v-flex>
     </v-layout>
 
@@ -42,47 +50,12 @@
         <v-dialog
           v-model="dialog"
           width="500">
-          <v-btn
-            slot="activator"
-            color="green"
-            dark>
-            View Ratings
-          </v-btn>
-          <v-card>
-            <v-card-title
-              class="headline grey lighten-2"
-              primary-title
-            >
-              Ratings
-            </v-card-title>
-            <v-card-text>
-              <table style="width:100%" border="1" >
-                <tr>
-                  <th>Source</th>
-                  <th>Ratings</th>
-                </tr>
-                <tr v-for="(rating,index) in this.ratings" :key="index">
-                  <td align="center">{{ratings[index].Source}}</td>
-                  <td align="center"><v-rating :half-increments="true" :value="ratings[index].Value"></v-rating></td>
-                </tr>
-              </table>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="primary"
-                flat
-                @click="dialog = false"
-              >
-                OK
-              </v-btn>
-            </v-card-actions>
-          </v-card>
         </v-dialog>
       </div>
       </v-flex>
     </v-layout>
   </v-container>
+  </body>
 </template>
 
 <script>
@@ -94,8 +67,7 @@ export default {
     return {
       singleMovie: '',
       dialog: false,
-      loading: true,
-      ratings: ''
+      loading: true
     }
   },
 
@@ -103,12 +75,6 @@ export default {
     movieApi.fetchSingleMovie(this.id)
       .then(response => {
         this.singleMovie = response
-        this.ratings = this.singleMovie.Ratings
-        this.ratings.forEach(function (element) {
-          element.Value = parseFloat(element.Value.split(/\/|%/)[0])
-          element.Value = element.Value <= 10 ? element.Value / 2 : element.Value / 20
-        }
-        )
         this.loading = false
       })
       .catch(error => {

@@ -1,5 +1,5 @@
 <template>
-
+<body class="has-background-grey-lighter" >
   <v-container v-if="loading">
     <div class="text-xs-center">
       <v-progress-circular
@@ -13,43 +13,45 @@
 
   <v-container v-else-if="noData">
     <div class="text-xs-center">
-    <h2> ooops maybe this api don't contain  {{this.name}}</h2>
+    <h2> ooops maybe this api don't contain {{this.name}} </h2>
     </div>
   </v-container>
 
-  <v-container v-else grid-list-sm>
+  <v-container v-else grid-list-xs>
     <v-layout wrap>
       <v-flex xs4
         v-for="(item, index) in movieResponse"
         :key="index"
         mb-2>
-        <v-card>
-          <v-img
-            :src="item.Poster"
-            aspect-ratio="1"
-          ></v-img>
-
+        <div class="box">
+          <figure class="image is-2by3">
+          <img 
+            :src="item.Poster" 
+          >
+          </figure>
           <v-card-title primary-title>
             <div>
-              <h2>{{item.Title}}</h2>
+              <h1 class="has-text-centered"> {{item.Title}} </h1>
               <br>
               <div><strong>Year:</strong>{{item.Year}}</div>
               <div><strong>Type:</strong>{{item.Type}}</div>
             </div>
           </v-card-title>
 
-          <v-card-actions class="justify-center">
+          <div class="justify-center">
             <v-btn
-              color="primary"
-              depressed
+              color="black"
+              dark
+              title="Read more about it"
               round
               @click="singleMovie(item.imdbID)"
-              >View</v-btn>
-          </v-card-actions>
-        </v-card>
+              >View more</v-btn>
+          </div>
+        </div>
       </v-flex>
   </v-layout>
   </v-container>
+</body>
 </template>
 
 <script>
