@@ -34,7 +34,7 @@ this a web application Contain Almost all informations of  Movies,  It's buildin
 git clone https://github.com/simbaaf/nurlatex-movie.git
  ```
 
-2- Change Directory into nurlatex-movie and install Dependecies : 
+2- Change Directory into nurlatex-movie and install Dependencies : 
  ```
 cd nurlatex-movie/
 yarn install 
