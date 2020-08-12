@@ -11,7 +11,7 @@ this a web application Contain Almost all informations of  Movies,  It's buildin
 - its build with a powerful framework vuejs 
 
  
-# Technologies Used :fit: : 
+# Technologies Used :dart: : 
 
 
 - **Vuejs** : is an open source Framework of javascript for building user interface [Link](https://vuejs.org/).
